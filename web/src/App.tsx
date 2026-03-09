@@ -1,7 +1,7 @@
 export default function App() {
   const testApi = async () => {
     try {
-      const res = await fetch("/api/health");
+      const res = await fetch("/health");
       console.log(await res.json());
     } catch (e) {
       console.error(e);
