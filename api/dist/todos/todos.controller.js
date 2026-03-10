@@ -26,7 +26,7 @@ let TodosController = class TodosController {
         return this.todos.list();
     }
     create(dto) {
-        return this.todos.create(dto);
+        return this.todos.create(dto.title);
     }
     update(id, dto) {
         return this.todos.update(id, dto);

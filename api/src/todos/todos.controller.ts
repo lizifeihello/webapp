@@ -14,7 +14,7 @@ export class TodosController {
 
     @Post()
     create(@Body() dto: CreateTodoDto) {
-        return this.todos.create(dto);
+        return this.todos.create(dto.title);
     }
 
     @Patch(':id')
