@@ -29,7 +29,10 @@ let TodosController = class TodosController {
         return this.todos.create(dto.title);
     }
     update(id, dto) {
-        return this.todos.update(id, dto);
+        return this.todos.update(id, {
+            title: dto.title,
+            done: dto.done,
+        });
     }
     remove(id) {
         return this.todos.remove(id);

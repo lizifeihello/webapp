@@ -40,7 +40,7 @@ export function TodosPage() {
   const toggle = async (t: Todo) => {
     setErr("");
     const next = !t.done;
-    // 乐观更新
+    // 更新
     setTodos((prev) => prev.map((x) => (x.id === t.id ? { ...x, done: next } : x)));
     try {
       await TodosApi.update(t.id, { done: next });
