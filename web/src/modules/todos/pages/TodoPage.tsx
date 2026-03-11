@@ -43,7 +43,7 @@ export function TodosPage() {
     // 更新
     setTodos((prev) => prev.map((x) => (x.id === t.id ? { ...x, done: next } : x)));
     try {
-      await TodosApi.update(t.id, { done: next });
+      await TodosApi.update(t.id, { title: t.title, done: next });
     } catch (e: any) {
       setErr(String(e.message ?? e));
       await refresh();
@@ -58,7 +58,7 @@ export function TodosPage() {
 
     setErr("");
     try {
-      await TodosApi.update(t.id, { title: v });
+      await TodosApi.update(t.id, { title: v, done: t.done });
       await refresh();
     } catch (e: any) {
       setErr(String(e.message ?? e));
