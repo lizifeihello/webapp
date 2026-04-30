@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { Todo } from "../model/todo";
 import { TodosApi } from "../services/todos.api";
 import { TodoItem } from "../components/TodoItem";
+import { trackTodoCreate, trackTodoToggle, trackTodoDelete } from "../../../analytics/events";
 
 export function TodosPage() {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -27,7 +28,11 @@ export function TodosPage() {
     setLoading(true);
     setErr("");
     try {
-      await TodosApi.create(v);
+      const created = await TodosApi.create(v);
+      trackTodoCreate({
+        todoId: created.id,
+        todoCount: todos.length + 1,
+      });
       setTitle("");
       await refresh();
     } catch (e: any) {
@@ -44,6 +49,10 @@ export function TodosPage() {
     setTodos((prev) => prev.map((x) => (x.id === t.id ? { ...x, done: next } : x)));
     try {
       await TodosApi.update(t.id, { title: t.title, done: next });
+      trackTodoToggle({
+        todoId: t.id,
+        done: next,
+      });
     } catch (e: any) {
       setErr(String(e.message ?? e));
       await refresh();
@@ -70,6 +79,9 @@ export function TodosPage() {
     setErr("");
     try {
       await TodosApi.remove(t.id);
+      trackTodoDelete({
+        todoId: t.id,
+      });
       setTodos((prev) => prev.filter((x) => x.id !== t.id));
     } catch (e: any) {
       setErr(String(e.message ?? e));
@@ -92,7 +104,7 @@ export function TodosPage() {
         <button onClick={add} disabled={loading} style={{ padding: "10px 14px" }}>
           Add
         </button>
-        <button onClick={() => refresh().catch(() => {})} disabled={loading} style={{ padding: "10px 14px" }}>
+        <button onClick={() => refresh().catch(() => { })} disabled={loading} style={{ padding: "10px 14px" }}>
           Refresh
         </button>
       </div>
