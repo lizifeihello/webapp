@@ -32,3 +32,13 @@ export function trackTodoDelete(params: {
         todo_id: params.todoId,
     });
 }
+
+export function trackBtn(params: {
+    value2: string;
+}) {
+    pushDataLayer({
+        event: "button_click",
+        value1: "123",
+        value2: params.value2,
+    });
+}
