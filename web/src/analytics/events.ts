@@ -37,8 +37,8 @@ export function trackBtn(params: {
     event: string;
 }) {
     pushDataLayer({
-        event: "button_click",
+        event: params.event,
         value1: "123",
-        value2: params.event,
+        value2: "test",
     });
 }

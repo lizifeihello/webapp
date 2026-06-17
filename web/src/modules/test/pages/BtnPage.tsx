@@ -7,11 +7,12 @@ export function BtnPage() {
 
       <button id="applicationCompleteBtn001" onClick={() => {
         trackBtn({
-          event: "application_event_002"
+          event: "application_event_001"
         });
       }} style={{ margin: "20px", padding: "10px 14px" }}>
         ボタン⓵
       </button>
+      
       <button id="applicationCompleteBtn002" onClick={() => {
         trackBtn({
           event: "application_event_002"
