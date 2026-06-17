@@ -34,11 +34,11 @@ export function trackTodoDelete(params: {
 }
 
 export function trackBtn(params: {
-    value2: string;
+    event: string;
 }) {
     pushDataLayer({
         event: "button_click",
         value1: "123",
-        value2: params.value2,
+        value2: params.event,
     });
 }

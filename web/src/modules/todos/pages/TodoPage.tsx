@@ -137,15 +137,6 @@ export function TodosPage() {
           ボタン⓵
         </button>
       </div>
-      <div>
-        <button id="applicationCompleteBtn002" onClick={() => {
-          trackBtn({
-            value2: "applicationCompleteBtn002"
-          });
-        }} style={{ marginTop: 20, padding: "10px 14px" }}>
-          ボタン⓶
-        </button>
-      </div>
     </div>
   );
 }
