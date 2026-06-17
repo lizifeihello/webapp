@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { Todo } from "../model/todo";
 import { TodosApi } from "../services/todos.api";
 import { TodoItem } from "../components/TodoItem";
-import { trackTodoCreate, trackTodoToggle, trackTodoDelete, trackBtn } from "../../../analytics/events";
+import { trackTodoCreate, trackTodoToggle, trackTodoDelete } from "../../../analytics/events";
 
 export function TodosPage() {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -128,15 +128,6 @@ export function TodosPage() {
           />
         ))}
       </ul>
-      <div>
-        <button id="applicationCompleteBtn001" onClick={() => {
-          trackBtn({
-            value2: "applicationCompleteBtn001"
-          });
-        }} style={{ marginTop: 20, padding: "10px 14px" }}>
-          ボタン⓵
-        </button>
-      </div>
     </div>
   );
 }
