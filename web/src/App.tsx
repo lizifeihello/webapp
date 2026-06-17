@@ -1,5 +1,5 @@
 import { TodosPage } from "./modules/todos/pages/TodoPage";
-import { BtnPage } from "./modules/todos/pages/BtnPage";
+import { BtnPage } from "./modules/test/pages/BtnPage";
 
 export default function App() {
   const isBtnPage = window.location.pathname === "/btn";

@@ -9,14 +9,14 @@ export function BtnPage() {
         trackBtn({
           event: "application_event_002"
         });
-      }} style={{ marginTop: 20, padding: "10px 14px" }}>
+      }} style={{ margin: "20px", padding: "10px 14px" }}>
         ボタン⓵
       </button>
       <button id="applicationCompleteBtn002" onClick={() => {
         trackBtn({
           event: "application_event_002"
         });
-      }} style={{ marginTop: 20, padding: "10px 14px" }}>
+      }} style={{ margin: "20px", padding: "10px 14px" }}>
         ボタン⓶
       </button>
     </div>
