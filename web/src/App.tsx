@@ -10,7 +10,7 @@ export default function App() {
         <a href="/" style={{ marginRight: 12 }}>
           Todo
         </a>
-        <a href="/btn">BtnPage</a>
+        <a href="/btn?gclid=test1234">BtnPage</a>
       </nav>
       {isBtnPage ? <BtnPage /> : <TodosPage />}
     </>
